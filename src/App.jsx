@@ -8,6 +8,7 @@ import Navbar from "./components/Navbar";
 import Contact from "./components/Contact";
 import Faq from "./components/Faq";
 import UseBlog from "./components/UseBlog";
+import BlogDetails from "./components/BlogDetails";
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
           <Route path="/about" element={<About/>}/>
           <Route path="/properties" element={<Property/>}/>
           <Route path="/blog" element={<UseBlog/>}/>
+          <Route path="/blog/:id" element={<BlogDetails/>}/>
           <Route path="/contact" element={<Contact/>}/>
           <Route path="/faq" element={<Faq/>}/>
         </Routes>
