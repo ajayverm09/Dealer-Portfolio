@@ -21,7 +21,7 @@ const Contact = () => {
     e.preventDefault();
     const existing = JSON.parse(localStorage.getItem("contactForm")) || [];
     localStorage.setItem("contactForm", JSON.stringify([...existing, formData]));
-    setSuccessMessage("✅Thank you for your suggestion!! Your message has been submitted.");
+    setSuccessMessage("✅ Thank you for your suggestion! Your message has been submitted.");
     setFormData({ firstName: "", lastName: "", email: "", message: "" });
     setTimeout(() => setSuccessMessage(""), 5000);
   };
@@ -34,7 +34,7 @@ const Contact = () => {
         required
         value={formData[name]}
         onChange={handleChange}
-        className="peer w-full border-b-2 border-gray-400 bg-transparent py-2 focus:outline-none"
+        className="peer w-full border-b-2 border-gray-400 bg-transparent py-2 focus:outline-none text-sm md:text-base"
       />
       <label
         htmlFor={name}
@@ -48,15 +48,20 @@ const Contact = () => {
   );
 
   return (
-    <div className="min-h-screen bg-[#fdfdec] flex items-center justify-center px-4">
+    <div className="min-h-screen bg-[#fdfdec] flex items-center justify-center px-4 py-10">
       <form
         onSubmit={handleSubmit}
-        className="bg-white p-8 rounded-lg shadow-md w-full max-w-2xl space-y-6"
+        className="bg-white w-full max-w-2xl p-6 sm:p-8 rounded-lg shadow-md space-y-6"
       >
-        <h2 className="text-3xl font-bold text-gray-800 text-center mb-4">Contact Us</h2>
+        <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 text-center mb-2 sm:mb-4">
+          Contact Us
+        </h2>
+        
+        <div className="flex flex-col md:flex-row gap-6">
+          {renderInput("firstName", "First name")}
+          {renderInput("lastName", "Last name")}
+        </div>
 
-        {renderInput("firstName", "First name")}
-        {renderInput("lastName", "Last name")}
         {renderInput("email", "Email", "email")}
 
         <div className="relative w-full">
@@ -66,7 +71,7 @@ const Contact = () => {
             value={formData.message}
             onChange={handleChange}
             rows="4"
-            className="peer w-full border-b-2 border-gray-400 bg-transparent py-2 focus:outline-none resize-none"
+            className="peer w-full border-b-2 border-gray-400 bg-transparent py-2 focus:outline-none resize-none text-sm md:text-base"
           />
           <label
             htmlFor="message"
@@ -80,13 +85,15 @@ const Contact = () => {
 
         <button
           type="submit"
-          className="w-full bg-yellow-400 text-black py-3 rounded-full font-semibold hover:bg-yellow-300 transition"
+          className="w-full bg-yellow-400 text-black py-3 rounded-full font-semibold hover:bg-yellow-300 transition text-sm sm:text-base"
         >
           Submit
         </button>
 
         {successMessage && (
-          <p className="text-green-600 text-center font-medium">{successMessage}</p>
+          <p className="text-green-600 text-center font-medium text-sm sm:text-base">
+            {successMessage}
+          </p>
         )}
       </form>
     </div>

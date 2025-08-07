@@ -29,16 +29,13 @@ const service = [
 
 const Services = () => {
   return (
-    <div>
-      <h2 className=" text-6xl font-semibold text-black ">Our Services</h2>
-
-      <div className="w-[1200px]">
+    <div className="bg-[#fafae7] py-12 px-4 sm:px-6 lg:px-8">
+      <h2 className="text-3xl sm:text-4xl font-semibold text-black text-center mb-10">Our Services</h2>
+      <div className="max-w-6xl mx-auto grid gap-10 md:grid-cols-2">
         {service.map((item, index) => (
-          <div key={index} className="ml-[420px]">
-            <h3 className="text-2xl font-bold text-black mb-2">{item.title}</h3>
-            <h4 className="text-md text-black font-medium mb-3">
-              {item.subtitle}
-            </h4>
+          <div key={index} className="bg-white p-6 rounded-lg shadow-md">
+            <h3 className="text-xl font-bold text-black mb-2">{item.title}</h3>
+            <h4 className="text-md text-black font-medium mb-3">{item.subtitle}</h4>
             <p className="text-gray-700 text-sm">{item.description}</p>
           </div>
         ))}

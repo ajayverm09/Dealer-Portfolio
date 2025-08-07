@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Popups from "./Popups";
 
 const offerings = [
   {
@@ -21,29 +22,25 @@ const offerings = [
 
 const KeyOfferings = () => {
   return (
-    <section className="bg-[#f9f9e9] py-16 px-4 sm:px-8 lg:px-16">
+    <section className="bg-[#f9f9e9] py-12 px-4 sm:px-6 lg:px-12">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold mb-12">Key Offerings</h2>
-        <div className="space-y-12">
+        <h2 className="text-3xl sm:text-4xl font-bold mb-10 sm:mb-12 text-center sm:text-left">
+          Key Offerings
+        </h2>
+        <div className="space-y-10">
           {offerings.map((item, index) => (
             <div
               key={index}
-              className="flex flex-col sm:flex-row justify-between border-b pb-8"
+              className="flex flex-col sm:flex-row sm:items-start justify-between border-b pb-6 gap-4"
             >
-              <p className="font-medium text-lg mb-4 sm:mb-0">
-                {item.title}
-              </p>
-              <p className="text-gray-700 text-justify sm:w-2/3 ">
-                {item.description}
-              </p>
+              <p className="font-semibold text-lg sm:w-1/3">{item.title}</p>
+              <p className="text-gray-700 text-justify sm:w-2/3">{item.description}</p>
             </div>
           ))}
         </div>
-      </div>
-      <div className="flex justify-end">
-        <Link to="/contact">
-      <button className="border-0 mt-5 rounded-full w-32 h-10 hover:bg-black hover:text-white bg-[#EEC355]">Get in Touch</button>
-      </Link>
+        <div className="flex justify-center sm:justify-end mt-10">
+          <Popups />
+        </div>
       </div>
     </section>
   );

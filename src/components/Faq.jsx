@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const faq = [
   {
@@ -25,22 +25,22 @@ const faq = [
     ques: "What are the benefits of investing in real estate",
     answer: "Investing in real estate offers benefits such as potential appreciation in property value, rental income generation, portfolio diversification, tax advantages, and long-term wealth creation. Real estate investments can provide financial stability, passive income opportunities, and a hedge against inflation, making it a popular choice for investors seeking tangible assets."
   },
-]
+];
 
 const Faq = () => {
   return (
     <section className="w-full bg-[#FAFAE7] px-4 py-16">
-      <h2 className="text-4xl ml-28 font-bold mb-12">FAQ</h2>
-      <div className="space-y-12">
-        {faq.map((faq, index) => (
-          <div key={index} className="flex flex-col sm:flex-row justify-between pl-28 pr-28 border-b pb-8">
-            <p className="font-semibold text-2xl mb-4 sm:mb-0">{faq.ques}</p>
-            <p className="text-gray-700 sm:w-2/3 text-right">"{faq.answer}"</p>
+      <h2 className="text-3xl sm:text-4xl font-bold mb-12 text-center sm:text-left sm:ml-28">FAQ</h2>
+      <div className="space-y-12 max-w-7xl mx-auto">
+        {faq.map((item, index) => (
+          <div key={index} className="flex flex-col sm:flex-row sm:items-start gap-6 sm:gap-12 border-b pb-8 px-4 sm:px-0">
+            <p className="font-semibold text-xl sm:text-2xl sm:w-1/3">{item.ques}</p>
+            <p className="text-gray-700 text-sm sm:text-base sm:w-2/3">{item.answer}</p>
           </div>
         ))}
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Faq
+export default Faq;
